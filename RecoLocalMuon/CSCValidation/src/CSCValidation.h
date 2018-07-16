@@ -122,11 +122,11 @@ public:
   CSCValidation(const edm::ParameterSet& pset);
 
   /// Destructor
-  ~CSCValidation() override;
+  virtual ~CSCValidation();
 
   /// Perform the analysis
-  void analyze(const edm::Event & event, const edm::EventSetup& eventSetup) override;
-  void endJob() override;
+  void analyze(const edm::Event & event, const edm::EventSetup& eventSetup);
+  void endJob();
 
   // for noise module
   struct ltrh
@@ -289,6 +289,14 @@ private:
   TH2F *hWireEff2;
   TH2F *hEffDenominator;
   TH2F *hSensitiveAreaEvt;
+
+  TH1F *hSSTETight;
+  TH1F *hRHSTETight;
+  TH2F *hSSTE2Tight;
+  TH2F *hRHSTE2Tight;
+  TH2F *hStripSTE2Tight;
+  TH2F *hWireSTE2Tight;
+  TH2F *hEffDenominatorTight;
 
   // occupancy
   TH2I *hOWires;
